@@ -1,0 +1,29 @@
+\section*{Exercise 2}
+
+\subsection*{a)}
+
+The function $y_1(x_1, \dots , x_5)$ is defined as a series of terms which are the product of a coefficient $b$ and a number of parameters $x_i$. There are six groups of terms with a different number of parameters. Table \ref{tab:funko_terms} summarizes these six groups of terms. The total number of terms is 32. The coefficients $b$ and the limits for the parameters $x$ are given. \cite{homework-w4}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{c|lcl}
+	Order & Form & \# of Terms & Name \\
+	\hline
+	$0$ & $b_0$ & $1$ & Constant term \\
+	$1$ & $b_i x_i$ & $5$ & Linear term \\
+	$2$ & $b_{ij} x_i x_j$ & $10$ & Two-factor interaction term \\
+	$3$ & $b_{ijk} x_i x_j x_k$ & $10$ & Three-factor interaction term \\
+	$4$ & $b_{ijkl} x_i x_j x_k x_l$ & $5$ & Four-factor interaction term \\
+	$5$ & $b_{ijklm} x_i x_j x_k x_l x_m$ & $1$ & Five-factor interaction term \\
+\end{tabular}
+\caption{Summary of the terms that define $y1$.}
+\label{tab:funko_terms}
+\end{table}
+
+\subsection*{b)}
+
+A more general definition of $y_1(x_1, \dots, x_n)$ with $n$ parameters would have $n + 1$ groups of terms. The number of terms in each group is given by a binomial coefficient, defined as $(n \quad k) = n!/k!(n-k)!$. The value $n$ is the number of parameters ($n = 5$ in our case). $k$ is the "order" of the group of terms, i.e. the number of parameters in that term. $k$ is synonymous with the leftmost column of Table \ref{tab:funko_terms}. As an example, a function dependent on $20$ parameters would have up to $15,504$ five-factor interaction terms. The total number of terms is $2^n$.
+
+\subsection*{c)}
+
+The factorial design for $y_1$ was evaluated, producing $32$ output values.
