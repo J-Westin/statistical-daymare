@@ -33,14 +33,14 @@ The factorial design for $y_1$ was evaluated, producing $32$ output values. The 
 \begin{tabular}{cr|cr|cr|cr}
 	$x_1, x_2, x_3, x_4, x_5$ & $y_1$ &$x_1, x_2, x_3, x_4, x_5$ & $y_1$ &$x_1, x_2, x_3, x_4, x_5$ & $y_1$ &$x_1, x_2, x_3, x_4, x_5$ & $y_1$ \\
 	\hline
-	$-,-,-,-,-$ & $-22.03$ & $-,-,-,-,+$ & $35.97$ & $-,-,-,+,-$ & $-17.52$ & $-,-,-,+,+$ & $-41.34$\\
-	$-,-,+,-,-$ & $-15.45$ & $-,-,+,-,+$ & $-52.61$ & $-,-,+,+,-$ & $-25.84$ & $-,-,+,+,+$ & $-30.78$\\
-	$-,+,-,-,-$ & $-20.89$ & $-,+,-,-,+$ & $-28.58$ & $-,+,-,+,-$ & $-28.9$ & $-,+,-,+,+$ & $-41.44$\\
-	$-,+,+,-,-$ & $-27.8$ & $-,+,+,-,+$ & $-40.12$ & $-,+,+,+,-$ & $-25.36$ & $-,+,+,+,+$ & $-28.21$\\
-	$+,-,-,-,-$ & $-2.68$ & $+,-,-,-,+$ & $-31.2$ & $+,-,-,+,-$ & $-7.79$ & $+,-,-,+,+$ & $-11.37$\\
-	$+,-,+,-,-$ & $-4.03$ & $+,-,+,-,+$ & $-1.91$ & $+,-,+,+,-$ & $13.47$ & $+,-,+,+,+$ & $17.83$\\
-	$+,+,-,-,-$ & $-11.33$ & $+,+,-,-,+$ & $-20.85$ & $+,+,-,+,-$ & $-4.65$ & $+,+,-,+,+$ & $-5.06$\\
-	$+,+,+,-,-$ & $2.93$ & $+,+,+,-,+$ & $5.67$ & $+,+,+,+,-$ & $29.82$ & $+,+,+,+,+$ & $41.35$\\
+	$-,-,-,-,-$ & $-22.03$ & $-,-,-,-,+$ &  $35.97$ & $-,-,-,+,-$ & $-17.52$ & $-,-,-,+,+$ & $-41.34$ \\
+	$-,-,+,-,-$ & $-15.45$ & $-,-,+,-,+$ & $-52.61$ & $-,-,+,+,-$ & $-25.84$ & $-,-,+,+,+$ & $-30.78$ \\
+	$-,+,-,-,-$ & $-20.89$ & $-,+,-,-,+$ & $-28.58$ & $-,+,-,+,-$ &  $-28.9$ & $-,+,-,+,+$ & $-41.44$ \\
+	$-,+,+,-,-$ &  $-27.8$ & $-,+,+,-,+$ & $-40.12$ & $-,+,+,+,-$ & $-25.36$ & $-,+,+,+,+$ & $-28.21$ \\
+	$+,-,-,-,-$ &  $-2.68$ & $+,-,-,-,+$ &  $-31.2$ & $+,-,-,+,-$ &  $-7.79$ & $+,-,-,+,+$ & $-11.37$ \\
+	$+,-,+,-,-$ &  $-4.03$ & $+,-,+,-,+$ &  $-1.91$ & $+,-,+,+,-$ &  $13.47$ & $+,-,+,+,+$ &  $17.83$ \\
+	$+,+,-,-,-$ & $-11.33$ & $+,+,-,-,+$ & $-20.85$ & $+,+,-,+,-$ &  $-4.65$ & $+,+,-,+,+$ &  $-5.06$ \\
+	$+,+,+,-,-$ &   $2.93$ & $+,+,+,-,+$ &   $5.67$ & $+,+,+,+,-$ &  $29.82$ & $+,+,+,+,+$ &  $41.35$ \\
 \end{tabular}
 \caption{Outputs of the function $y1$ for all 32 possible input combinations.}
 \label{tab:outputs_y1}
@@ -57,5 +57,32 @@ Analysis of Variance (ANOVA) is a method for determining the strength of differe
 where $S_{ij\dots}^+$ is the sum of all outputs $y(x_1, \dots, x_n)$ where the parameters $x_i, x_j, \dots$ all have their maximum values, and $S_{ij\dots}^-$ is similarly defined for minimum values. From these we can define a normalized interaction term $P_{ij\dots}$ as:
 
 \begin{equation}
-	P_{ij\dots} = S_{ij\dots} / S_T \quad \text{where} \quad S_T = \sum_{\forall y} (y - \bar{y})^2
+	P_{ij\dots} = S_{ij\dots} / S_T \times 100\ \% \quad \text{where} \quad S_T = \sum_{\forall y} (y - \bar{y})^2
 \end{equation}
+
+Table \ref{tab:interactions} shows all of these interaction terms for $y_1$, as well as the total contribution of each order (e.g. linear terms, two-term interactions etc.). We notice that the greatest contributing term is the linear $P_1$, which is likely a result of the great difference between $x_{1,min} = -3.5$ and $x_{1,max} = 2.5$. Indeed, we see that the higher order terms which contribute most to the total include the effect of $x_1$. We can conclude that out of the five parameters, $y_1$ appears to be most sensitive to $x_1$.
+
+The total of all these percentage terms is not necessarily $100\ \%$. Adding up all of the totals reveals that in our case, $\sum_{\forall i,j,\dots} P_{ij\dots} = 109.4\ \%$.
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{c|ccccc}
+		Order &          1          &          2           &          3           &           4           &           5            \\
+		\hline
+		      & $P_{1} = 34.71\ \%$ & $P_{12} = 8.42\ \%$  & $P_{123} = 3.04\ \%$ & $P_{1234} = 0.64\ \%$ & $P_{12345} = 0.79\ \%$ \\
+		      & $P_{2} = 0.01\ \%$  & $P_{13} = 14.25\ \%$ & $P_{124} = 2.61\ \%$ & $P_{1235} = 1.47\ \%$ &          $-$           \\
+		      & $P_{3} = 2.75\ \%$  & $P_{14} = 11.76\ \%$ & $P_{125} = 2.03\ \%$ & $P_{1245} = 1.06\ \%$ &          $-$           \\
+		      & $P_{4} = 0.93\ \%$  & $P_{15} = 6.22\ \%$  & $P_{134} = 3.73\ \%$ & $P_{1345} = 2.04\ \%$ &          $-$           \\
+		      & $P_{5} = 0.82\ \%$  & $P_{23} = 0.62\ \%$  & $P_{135} = 4.54\ \%$ & $P_{2345} = 0.28\ \%$ &          $-$           \\
+		      &         $-$         & $P_{24} = 0.19\ \%$  & $P_{145} = 3.25\ \%$ &          $-$          &          $-$           \\
+		      &         $-$         & $P_{25} = 0.24\ \%$  & $P_{234} = 0.28\ \%$ &          $-$          &          $-$           \\
+		      &         $-$         & $P_{34} = 1.72\ \%$  & $P_{235} = 0.16\ \%$ &          $-$          &          $-$           \\
+		      &         $-$         & $P_{35} = 0.14\ \%$  & $P_{245} = 0.02\ \%$ &          $-$          &          $-$           \\
+		      &         $-$         &  $P_{45} = 0.0\ \%$  & $P_{345} = 0.64\ \%$ &          $-$          &          $-$           \\
+		      \hline
+		Total &     $39.22\ \%$     &     $43.58\ \%$      &     $20.31\ \%$      &      $5.49\ \%$       &       $0.79\ \%$
+	\end{tabular}
+	\caption{Interaction percentages for all terms in .}
+	\label{tab:interactions}
+\end{table}
+
