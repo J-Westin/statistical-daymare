@@ -46,3 +46,16 @@ The factorial design for $y_1$ was evaluated, producing $32$ output values. The 
 \label{tab:outputs_y1}
 \end{table}
 
+\subsection*{d)}
+
+Analysis of Variance (ANOVA) is a method for determining the strength of different factor interactions. Each set of factors $x_i, x_j, \dots$ has a corresponding interaction term $S_{ij\dots}$, which is defined as:
+
+\begin{equation}
+	S_{ij\dots} = \frac{1}{n_L} \cdot \frac{(S_{ij\dots}^+ - S_{ij\dots}^-)^2}{n_k}
+\end{equation}
+
+where $S_{ij\dots}^+$ is the sum of all outputs $y(x_1, \dots, x_n)$ where the parameters $x_i, x_j, \dots$ all have their maximum values, and $S_{ij\dots}^-$ is similarly defined for minimum values. From these we can define a normalized interaction term $P_{ij\dots}$ as:
+
+\begin{equation}
+	P_{ij\dots} = S_{ij\dots} / S_T \quad \text{where} \quad S_T = \sum_{\forall y} (y - \bar{y})^2
+\end{equation}
