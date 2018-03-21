@@ -32,21 +32,13 @@ The factorial design for $y_1$ was evaluated, producing $32$ output values. The 
 
 \subsection*{d)}
 
-Analysis of Variance (ANOVA) is a method for determining the strength of different factor interactions. Each set of factors $x_i, x_j, \dots$ has a corresponding interaction term $S_{ij\dots}$, which is defined as:
+Analysis of Variance (ANOVA) is a method for determining the strength of different factor interactions. Each set of factors $x_i, x_j, \dots$ has a corresponding interaction term $P_{ij\dots}$, which is defined as:
 
 \begin{equation}
-	S_{ij\dots} = \frac{1}{n_L} \cdot \frac{(S_{ij\dots}^+ - S_{ij\dots}^-)^2}{n_k}
+	S_{ij\dots} = \frac{1}{n_L} \cdot \frac{(S_{ij\dots}^+ - S_{ij\dots}^-)^2}{n_k} \quad\rightarrow\quad P_{ij\dots} = \frac{S_{ij\dots}}{S_T} \cdot 100\ \% \quad \text{where} \quad S_T = \sum_{\forall y} (y - \bar{y})^2
 \end{equation}
 
-where $S_{ij\dots}^+$ is the sum of all outputs $y(x_1, \dots, x_n)$ where the parameters $x_i, x_j, \dots$ all have their maximum values, and $S_{ij\dots}^-$ is similarly defined for minimum values. From these we can define a normalized interaction term $P_{ij\dots}$ as:
-
-\begin{equation}
-	P_{ij\dots} = S_{ij\dots} / S_T \times 100\ \% \quad \text{where} \quad S_T = \sum_{\forall y} (y - \bar{y})^2
-\end{equation}
-
-Table \ref{tab:interactions} shows all of these interaction terms for $y_1$, as well as the total contribution of each order (e.g. linear terms, two-term interactions etc.). We notice that the greatest contributing term is the linear $P_1$, which is likely a result of the great difference between $x_{1,min} = -3.5$ and $x_{1,max} = 2.5$. Indeed, we see that the higher order terms which contribute most to the total include the effect of $x_1$. We can conclude that out of the five parameters, $y_1$ appears to be most sensitive to $x_1$.
-
-The total of all these percentage terms is not necessarily $100\ \%$. Adding up all of the totals reveals that in our case, $\sum_{\forall i,j,\dots} P_{ij\dots} = 109.4\ \%$.
+where $S_{ij\dots}^+$ is the sum of all outputs $y(x_1, \dots, x_n)$ where the parameters $x_i, x_j, \dots$ all have their maximum values, and $S_{ij\dots}^-$ is similarly defined for minimum values. Table \ref{tab:interactions_y1} shows all of these interaction terms for $y_1$. We notice that the greatest contributing term is the linear $P_1$, which is likely a result of the great difference between $x_{1,min} = -3.5$ and $x_{1,max} = 2.5$. Indeed, we see that the higher order terms which contribute most to the total include the effect of $x_1$. We can conclude that out of the five parameters, $y_1$ appears to be most sensitive to $x_1$.
 
 \begin{table}[h!]
 	\centering
@@ -66,7 +58,6 @@ The total of all these percentage terms is not necessarily $100\ \%$. Adding up 
 		      \hline
 		Total &     $39.22\ \%$     &     $43.58\ \%$      &     $20.31\ \%$      &      $5.49\ \%$       &       $0.79\ \%$
 	\end{tabular}
-	\caption{Interaction percentages for all terms in .}
-	\label{tab:interactions}
+	\caption{Interaction percentages for all terms in $y_1$.}
+	\label{tab:interactions_y1}
 \end{table}
-
